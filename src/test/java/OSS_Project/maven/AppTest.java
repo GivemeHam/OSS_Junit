@@ -1,18 +1,15 @@
 package OSS_Project.maven;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-	@Test
+public class AppTest {
+
+	@Test(timeout = 5000)
 	public void testSum() {
 		App app = new App();
-		int result = app.sum(10, 30);
-		assertEquals(40, result, 0);
+		assertEquals(30, app.sum(10,20), 0);
 	}
+
 }
