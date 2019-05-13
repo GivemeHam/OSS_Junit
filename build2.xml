@@ -70,3 +70,4 @@
 		</junitreport>
 		<record name="${test.reports}/test-output.txt" action="stop"/>
 	</target>
+</project>
