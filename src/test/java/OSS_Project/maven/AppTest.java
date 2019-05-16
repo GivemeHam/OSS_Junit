@@ -1,9 +1,8 @@
 package OSS_Project.maven;
 
-
-
 import org.junit.Test;
-import org.junit.Assert;
+
+import junit.framework.Assert;
 
 public class AppTest {
 
