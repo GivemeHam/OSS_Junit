@@ -9,9 +9,8 @@ import jdk.nashorn.internal.ir.annotations.Ignore;
 import junit.framework.Assert;
 
 public class AppTest {
-	static int num1 = 0;
-	static int num2 = 0;
-	static App app = null;
+	static int num1 = 0, num2 = 0;
+	static App app = new App(), app2 = new App();;
 
 	@Test(timeout = 5000)
 	public void testSum() {
@@ -23,7 +22,19 @@ public class AppTest {
 	}
 	@Test(timeout = 5000)
 	public void same() {
-		Assert.assertSame(num1, num2); //return false;
+		Assert.assertSame(app, app); //return false;
+	}
+	@Test
+	public void isOdd() {	//홀수인지
+		Assert.assertFalse(num1%2==1);
+	}
+	@Test	
+	public void isEven() {	//짝수인지
+		Assert.assertTrue(num1%2==0);
+	}
+	@Test
+	public void appChk() {	//app이 Null이 아닌지를 테스트
+		Assert.assertNotNull(app);
 	}
 	@Ignore // 실행되지 않는다.
 	public void ignore() {
@@ -31,18 +42,18 @@ public class AppTest {
 	}
 	@Before	// @Test 실행전마다 실행된다.
 	public void before() {
-		if(num1 == 0) num1 = 10;
-		if(num2 == 0) num2 = 20;
+		if(num1 != 10) num1 = 10;
+		if(num2 != 20) num2 = 20;
 	}
-	@BeforeClass	//@Test 실행전 한번만 실행된다.
-	public static void beforeClass() {
-		app = new App();
-		num1 = 10;
-		num2 = 20;
-	}
-	@AfterClass		//@Test 실행후 한번만 실행된다.
-	public static void afterClass() {
-		app = null;
-	}
+//	@BeforeClass	//@Test 실행전 한번만 실행된다.
+//	public static void beforeClass() {
+//		app = new App();
+//		num1 = 10;
+//		num2 = 20;
+//	}
+//	@AfterClass		//@Test 실행후 한번만 실행된다.
+//	public static void afterClass() {
+//		app = null;
+//	}
 
 }
